@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="main row">
+    <div class="col-xs-12 col-md-9">
+      <div class="form-group">
+        <h1>Listing Articles</h1>
+        <%= link_to 'New article', new_article_path %>
+      </div>
+      <div class="form-group">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Title</th>
+              <th>Text</th>
+              <th>Accions</th>
+            </tr>
+          </thead>
+          <tbody>
+          <% @articles.each do |article| %>
+            <tr>
+              <td>
+                <%= article.user.username %>
+                <%= article.created_at.strftime("%d %b. %Y - %I:%M %P") %>
+              </td>
+              <td><%= article.title %></td>
+              <td><%= article.text %></td>
+              <td>
+                  <%= link_to 'Show', article_path(article) %>
+                  <%= link_to 'Edit', edit_article_path(article) %>
+                  <%= link_to 'Destroy', article_path(article),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' } %>
+              </td>
+            </tr>
+          </tbody>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

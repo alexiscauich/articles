@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>As</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  </head>
+
+  <body>
+    <% if user_signed_in? %>
+      <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link">Logged in as <strong><%= current_user.email %></strong>.</a>
+          </li>
+          <li class="nav-item">
+            <a><%= link_to 'Edit profile', edit_user_registration_path, :class => 'nav-link' %></a>
+          </li>
+          <li class="nav-item">
+            <a><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'nav-link'  %></a>
+          </li>
+        </ul>
+      </nav>
+      <% else %>
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a><%= link_to "Sign up", new_user_registration_path, :class => 'nav-link' %></a>
+        </li>
+        <li class="nav-item">
+          <a><%= link_to "Login", new_user_session_path, :class => 'nav-link' %></a>
+        </li>
+      </ul>
+    <% end %>
+  <%= yield %>
+  </body>
+</html>

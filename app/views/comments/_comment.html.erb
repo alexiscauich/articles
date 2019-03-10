@@ -1,0 +1,16 @@
+<ul>
+  <li>
+    <strong> created: <%= comment.created_at.strftime("%d %b. %Y - %I:%M %P") %> </strong>
+  </li>
+  <li>
+    <strong> User : <%= comment.user.username %>  </strong>
+  </li>
+  <li>
+    <strong>Comment: <%= comment.body %> </strong>
+  </li>
+</ul>
+<p>
+  <%= link_to 'Destroy Comment', [comment.article, comment],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>

@@ -1,0 +1,21 @@
+Last login: Mon Mar 11 09:46:23 on ttys000
+dyld: Library not loaded: /usr/local/opt/gdbm/lib/libgdbm.4.dylib
+  Referenced from: /usr/local/bin/zsh
+  Reason: image not found
+zsh: abort      
+➜  ~ cd articles
+➜  articles git:(master) ✗ rails c
+Running via Spring preloader in process 1059
+Loading development environment (Rails 5.2.2)
+2.4.1 :001 > Comment.all.fisrt
+NoMethodError:   Comment Load (12.9ms)  SELECT  "comments".* FROM "comments" LIMIT ?  [["LIMIT", 11]]
+undefined method `fisrt' for #<Comment::ActiveRecord_Relation:0x007ffe61ccff30>
+Did you mean?  first
+	from (irb):1
+2.4.1 :002 > Comment.all.first
+  Comment Load (0.2ms)  SELECT  "comments".* FROM "comments" ORDER BY "comments"."id" ASC LIMIT ?  [["LIMIT", 1]]
+ => #<Comment id: 18, body: "very goood", article_id: 6, created_at: "2019-03-10 02:50:32", updated_at: "2019-03-10 02:50:32", user_id: 2> 
+2.4.1 :003 > 
+
+
+

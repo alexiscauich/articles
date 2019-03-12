@@ -10,7 +10,7 @@ module As
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
-    config.time_zone = 'Central Time (US & Canada)'
+    config.time_zone = 'Mexico City'
     config.active_record.default_timezone = :utc
 
     # Settings in config/environments/* take precedence over those specified here.

@@ -1,6 +1,6 @@
 <div class="card-header"> User : <%= comment.user.username %> </div>
 <div class="card-body text-info">
-  <h5 class="card-title">created: <%= comment.created_at.strftime("%d %b. %Y - %I:%M %P") %></h5>
+  <h5 class="card-title">created: <%= comment.created_at.strftime("%A %d de %B - %I:%M %P") %></h5>
   <p class="card-text">Comment: <%= comment.body %> </p>
   <p>
     <%= link_to 'Destroy Comment', [comment.article, comment],

@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Article.create!([
+  { title: 'Product 001' },
+  { text: 'Product 002' },
+  { title: 'Product 003' },
+  { text: 'Product 004' }
+])

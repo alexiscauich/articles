@@ -2,9 +2,21 @@
 <div class="card-body text-info">
   <h5 class="card-title">created: <%= comment.created_at.strftime("%A %d de %B - %I:%M %P") %></h5>
   <p class="card-text">Comment: <%= comment.body %> </p>
-  <p>
-    <%= link_to 'Destroy Comment', [comment.article, comment],
-                 method: :delete,
-                 data: { confirm: 'You are sure to delete the comment?' } %>
-  </p>
+  <ul class="nav justify-content-end">
+    <li class="nav-item">
+      <a><%= link_to 'Destroy Comment', [comment.article, comment], :class => 'btn btn-danger',
+                   method: :delete,
+                   data: { confirm: 'You are sure to delete the comment?' } %></a>
+    </li>
+  </ul>
+</div>
+
+<div class="container">
+  <div class="main row">
+    <div class="col-xs-12 col-md-7">
+      <div class="form-group">
+
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,49 +1,44 @@
 class ArticlesController < ApplicationController
+  before_action :set_product, only: [:show, :update, :destroy]
+
   def index
     @articles = Article.all
+
+    render json: @articles
   end
 
   def show
-    @article = Article.find(params[:id])
-  end
-
-  def new
-    @article = Article.new
-  end
-
-  def edit
-    @article = Article.find(params[:id])
+    render json: @article
   end
 
   def create
-    @article = current_user.articles.new article_params
+    @article = Article.new(article_params)
 
-  if @article.save
-    redirect_to @article
-  else
-    render 'new'
+    if @article.save
+      render json: @article, status: :created, location: @article
+    else
+      render json: @article.errors, status: :unprocessable_entity
+    end
   end
-end
 
-def update
-  @article = Article.find(params[:id])
-
-  if @article.update(article_params)
-    redirect_to @article
-  else
-    render 'edit'
+  def update
+    if @article.update(article_params)
+      render json: @article
+    else
+      render json: @article.errors, status: :unprocessable_entity
+    end
   end
-end
 
-def destroy
-  @article = Article.find(params[:id])
-  @article.destroy
-
-  redirect_to articles_path
-end
-
-private
-  def article_params
-    params.require(:article).permit(:title, :text)
+  def destroy
+    @article.destroy
   end
+
+  private
+    def set_product
+      @article = Article.find(params[:id])
+    end
+
+    def article_params
+      params.require(:article).permit(:title, :text)
+    end
 end

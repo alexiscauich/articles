@@ -9,29 +9,31 @@ import { Angular2TokenService } from 'angular2-token';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ApiService } from './api.service';
-import { AccountComponent } from './account/account.component';
-import { HttpModule } from '@angular/http'
-import { AuthLinksComponent } from './authentication/auth-links.component';
-import { AuthenticationModule } from './authentication/authentication.module';
+import { MaterializeModule } from 'angular2-materialize';
 
+import { ApiService } from './api.service';
+import { HttpModule } from '@angular/http';
+import { HomeComponent } from './home/home.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { AuthDialogComponent } from './auth-dialog/auth-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ArticleAddComponent,
     ArticleListComponent,
-    AccountComponent,
-    AuthLinksComponent
+    HomeComponent,
+    ToolbarComponent,
+    AuthDialogComponent
 
   ],
   imports: [
     BrowserModule,
+    MaterializeModule,
     FormsModule,
     HttpModule,
     HttpClientModule,
     AppRoutingModule,
-    AuthenticationModule,
     RouterModule.forRoot([
       {
         path: 'articles',

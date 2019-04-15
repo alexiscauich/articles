@@ -1,18 +1,5 @@
+<app-toolbar></app-toolbar>
+
 <div class="container">
-  <h1> articles </h1>
-  <div class="panel">
-    <div class="panel-heading" style="background: skyblue;">
-        <a routerLink="/articles">Products</a> ||
-        <a routerLink="/articles/add">Add Products</a>
-    </div>
-    <div class="panel-body">
-
-        <router-outlet></router-outlet>
-
-
-    </div>
-    <form class="form-inline my-2 my-lg-0">
-      <auth-links></auth-links>
-    </form>
-  </div>
+  <router-outlet></router-outlet>
 </div>
